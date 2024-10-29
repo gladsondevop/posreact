@@ -1,0 +1,16 @@
+{
+  "miniaturas": [
+    {
+      "id": "1",
+      "marca": "Maisto",
+      "modelo": "Chevrolet Opala SS 4.1",
+      "escala": "1/43"
+    },
+    {
+        "id": "2",
+        "marca": "Maisto",
+        "modelo": "Chevrolet Opala SS 4.1",
+        "escala": "1/43"
+    }
+  ]
+}

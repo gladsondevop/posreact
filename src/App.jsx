@@ -1,41 +1,41 @@
 import "./assets/styleGlobal.css";
-import Layout from "./components/Layout";
+import Layout from "./components/layout";
+import Table from "./components/table";
+import { useEffect, useState } from "react";
+import { deletarMiniatura, getMiniaturas } from "./services/api";
+
+
 
 function App() {
+  
+  const [miniaturas, setMiniaturas] = useState([]);
+
+  const delMiniatura = async (id) => {
+    try {
+        await deletarMiniatura(id);
+        getMinis();
+    } catch {
+        alert("Algo errado não está certo.");
+    }
+
+  };
+
+  const getMinis = async () => {
+    const data = await getMiniaturas();
+    setMiniaturas(data);
+  }
+
+  useEffect(() => {
+    (async () => {
+      getMinis();
+    })();
+  }, []);
+
   return (
     <Layout>
-      <div className="main">
-        <div className="titlePage"></div>
-        <div className="description"></div>
-
-        <div className="menutable"></div>
-        <div className="table">
-          <table>
-            <caption>Catálogo de Miniaturas</caption>
-            <thead>
-              <tr>
-                <th>Marca</th>
-                <th>Modelo</th>
-                <th>Escala</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Maisto</td>
-                <td>Opala SS 4.1</td>
-                <td>1/46</td>
-              </tr>
-              <tr>
-                <td>Hot Wheels</td>
-                <td>Dodge Charger</td>
-                <td>1/64</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+        <Table miniaturas={miniaturas} delMiniatura={delMiniatura}></Table>
     </Layout>
   )
 }
 
-export default App
+export default App;

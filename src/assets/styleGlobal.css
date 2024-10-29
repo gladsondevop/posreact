@@ -21,36 +21,38 @@ header {
 }
 
 .logo {
-    max-width: 300px;
+    max-width: 1024px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 header .logo img{
-    max-width: 300px;
-    margin-left: -60px;
+    max-width: 190px;
 }
 
-.menu {
+nav {
+    display: flex;
+    gap: 8px;
+    padding: 5px;
+    margin-top: 8px;
     border: solid 1px;
-    margin-top: -200px;
     border-radius: 10px;
-    height: 43px;
+    margin-top: -200px;
     margin-bottom: 5px;
 }
 
-.menu ul{
-    display: flex;
-    list-style: none;
-    margin-top: 0;
-    margin-left: -40px;
+nav a {
+    text-decoration: none;
+    color: #000;
+    padding: 8px 16px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #f6b40f;
+    border-radius: 8px;
 }
 
-.menu ul li{
-    background: #f6b40f;
-    padding: 8px;
-    margin: 5px;
-    border-radius: 10px;
-    cursor: pointer;
-}
 
 .main {
     background-color: #e7e7e7;
@@ -69,6 +71,32 @@ header .logo img{
 .main table td{
     border: 1px solid #f6b40f;
     border-radius: 5px;
+}
+
+table td a {
+    /* text-decoration: none;
+    color: #000;
+    padding: 6px 12px;
+    border-radius: 4px; */
+}
+
+.btn-editar {
+    background-color: #ffc107;
+}
+
+.btn {
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+}
+.btn:hover {
+    opacity: 0.8;
+}
+
+.btn-excluir {
+    background-color: #dc3545;
 }
 
 footer {
