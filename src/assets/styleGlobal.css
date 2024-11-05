@@ -73,30 +73,99 @@ nav a {
     border-radius: 5px;
 }
 
-table td a {
-    /* text-decoration: none;
+table td a span{
+    text-decoration: none;
     color: #000;
-    padding: 6px 12px;
-    border-radius: 4px; */
-}
-
-.btn-editar {
-    background-color: #ffc107;
-}
-
-.btn {
-    border: none;
-    padding: 4px 8px;
     border-radius: 4px;
-    color: #fff;
+}
+
+.btn-edit {
+    margin: auto;
+    width: 15px;
+    margin-top: 2px;
     cursor: pointer;
 }
-.btn:hover {
-    opacity: 0.8;
+
+.btn-edit span{
+    color: #0b8dd8;
 }
 
-.btn-excluir {
-    background-color: #dc3545;
+.btn-delete {
+    margin: auto;
+    width: 15px;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+.btn-delete span{
+    color: #cc0210;
+}
+
+.cadastro {
+    background: #d4d4d4;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.cadastro .field {
+    flex: 1;
+    max-width: 400px;
+}
+
+.cadastro .field label {
+    color: #222;
+    font-weight: bold;
+}
+
+.cadastro .field input {
+    border: solid 1px #f6b40f;
+    padding: 10px;
+    width: 100%;
+    margin: 5px 0;
+}
+
+.cadastro .field button {
+    border: none;
+    padding: 10px;
+    background: #f6b40f;
+    border-radius: 4px;
+    color: #000;
+}
+
+.topo {
+    background-color: #d4d4d4;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+.topo button {
+    border: none;
+    padding: 10px;
+    background: #f6b40f;
+    border-radius: 4px;
+    color: #000;
+    display: flex;
+    justify-content: center;
+}
+.topo button.list {
+    background-color: #c1121f;
+}
+
+.topo span {
+    margin: 1px 2px 0 0;
+}
+
+.msgErro {
+    text-align: center;
+}
+
+.menu a.active{
+    background: #75ccff;
 }
 
 footer {

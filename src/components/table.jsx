@@ -1,7 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import { colunas } from "../config/colunas-tb-miniaturas";
+import { FaEdit, FaTrash } from "react-icons/fa";
 
 /* eslint-disable react/prop-types */
 function Table ({miniaturas, delMiniatura}) {
+
+    const navigate = useNavigate();
 
     return (
         <div className="container">
@@ -22,11 +26,19 @@ function Table ({miniaturas, delMiniatura}) {
                   <td>{item.escala}</td>
 
                   <td>
-                    <a href="#">Editar</a>
+                    <div className="btn-edit">
+                      <a onClick={() => navigate(`/detalhes/${item.id}`)}>
+                        <span>{<FaEdit/>}</span>
+                      </a>
+                    </div>
                   </td>
 
                   <td>
-                    <a href="#" onClick={() => delMiniatura(item.id)}>Excluir</a>
+                    <div className="btn-delete">
+                      <a onClick={() => delMiniatura(item.id)}>
+                        <span>{<FaTrash/>}</span>
+                      </a>
+                    </div>
                   </td>
                 </tr>  
               ))}
