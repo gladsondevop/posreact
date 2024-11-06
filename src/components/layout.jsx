@@ -1,5 +1,4 @@
 import Container from "./container";
-import Menu from "./menu";
 import Footer from "./footer";
 import Header from "./header";
 
@@ -9,8 +8,7 @@ function Layout ({children}) {
         <>
             <Container>
                 <Header />
-                <Menu />
-                <main className="container main">{children}</main>
+                <main className="container mx-auto">{children}</main>
                 <Footer></Footer>
             </Container>
         </>

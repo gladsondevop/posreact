@@ -1,4 +1,3 @@
-import "../assets/styleGlobal.css";
 import Table from "../components/table";
 import { useEffect, useState } from "react";
 import { deletarMiniatura, getMiniaturas } from "../services/api";
