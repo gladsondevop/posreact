@@ -1,52 +1,31 @@
 import Table from "../components/table";
 import { useEffect, useState } from "react";
-import { deletarMiniatura, getMiniaturas } from "../services/api";
+import { deletarMiniatura } from "../services/api";
 import Form from "../components/form";
-
-
+import { useDispatch } from "react-redux";
+import { getAllMiniaturas } from "../store/slices/miniatura/action";
 
 function Initial() {
-  
-  const [miniaturas, setMiniaturas] = useState([]);
+  const dispatch = useDispatch();
   const [showList, setShowList] = useState(true);
-  const [form, setForm] = useState({});
-  const [update, setUpdate] = useState(false);
-
-  // const cadastro = (value) => {
-  //   setShowList(value);
-  //   setUpdate(false);
-  // }
-
-  const editMiniatura = (value) => {
-    setForm(value);
-    setShowList(!setShowList);
-    setUpdate(true);
-  };
 
   const delMiniatura = async (id) => {
     try {
         await deletarMiniatura(id);
-        getMinis();
+        dispatch(getAllMiniaturas());
     } catch {
         alert("Algo errado não está certo.");
     }
 
   };
 
-  const getMinis = async () => {
-    const data = await getMiniaturas();
-    setMiniaturas(data);
-  }
-
   useEffect(() => {
-    (async () => {
-      getMinis();
-    })();
-  }, [showList]);
+    dispatch(getAllMiniaturas());
+  }, []);
 
   return (
     <>
-        {showList ? <Table miniaturas={miniaturas} delMiniatura={delMiniatura} editMiniatura={editMiniatura} /> : <Form act={setShowList} form={form} setForm={setForm} update={update} />}
+        {showList ? <Table delMiniatura={delMiniatura} /> : <Form act={setShowList} />}
     </>
   )
 }

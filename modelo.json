@@ -1,16 +1,22 @@
 {
   "miniaturas": [
     {
-      "id": "1",
+      "id": "6bdc",
+      "marca": "Ghrow",
+      "modelo": "Chevrolet Impala 67",
+      "escala": "1/32"
+    },
+    {
+      "id": "c9f1",
+      "marca": "Ghrow",
+      "modelo": "Ford Maverik 1976",
+      "escala": "1/32"
+    },
+    {
+      "id": "99e3",
       "marca": "Maisto",
       "modelo": "Chevrolet Opala SS 4.1",
       "escala": "1/43"
-    },
-    {
-        "id": "2",
-        "marca": "Maisto",
-        "modelo": "Chevrolet Opala SS 4.1",
-        "escala": "1/43"
     }
   ]
 }

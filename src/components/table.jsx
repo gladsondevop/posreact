@@ -1,14 +1,20 @@
 import { useNavigate } from "react-router-dom";
 import { colunas } from "../config/colunas-tb-miniaturas";
 import { FaEdit, FaTrash } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteMiniatura } from "../store/slices/miniatura/action";
 
 /* eslint-disable react/prop-types */
-function Table ({miniaturas, delMiniatura}) {
+function Table () {
 
     const navigate = useNavigate();
 
-    return (
+    const dispatch = useDispatch();
+    const {miniaturas} = useSelector((state) => state.miniatura);
 
+    const delMiniatura = (id) => dispatch(deleteMiniatura(id));
+
+    return (
 
       <div className="relative overflow-x-auto mt-10 mb-10">
           <table className="w-full text-sm text-left rtl:text-right text-gray-500 light:text-gray-400">

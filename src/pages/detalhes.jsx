@@ -1,39 +1,25 @@
-import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { editarMiniatura, getMiniatura } from "../services/api";
 import Form from "../components/form";
 import Erro from "../components/erro";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { getMini } from "../store/slices/miniatura/action";
+import { useSelector } from "react-redux";
 
 function Detalhes() {
-    const navigate = useNavigate();
+    
     let {id} = useParams();
-    const [miniatura, setMiniatura] = useState(null);
-
-    const setFormValues = (field, value) => 
-        setMiniatura({...miniatura, [field] : value});
-
-    const updateMiniatura = async () => {
-        try {
-            await editarMiniatura(miniatura);
-            alert("Miniatura atuaizada com sucesso!");
-            setMiniatura({})
-            navigate('/')
-        } catch {
-            throw new Error("Erro inesperado ao editar miniatura.");
-        }
-    }
+    const dispatch = useDispatch();
+    const {miniatura: mini} = useSelector((state) => state.miniatura);
 
     useEffect(() => {
-    (async () => {
-        const miniatura = await getMiniatura(id);
-        setMiniatura(miniatura.data);
-    })();
-    }, [id]);
+        dispatch(getMini(id))
+    }, [dispatch, id]);
 
-    if(!miniatura) {
+    if(!mini) {
         return <Erro />
     } else {
-        return <Form miniatura={miniatura} setFormValues={setFormValues} submit={updateMiniatura} />
+        return <Form isEdit />
     }
 
     

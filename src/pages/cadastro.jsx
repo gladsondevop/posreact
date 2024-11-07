@@ -1,29 +1,18 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import Form from "../components/form";
-import { cadastrarMiniatura } from "../services/api";
-import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setMiniatura } from "../store/slices/miniatura/reducer";
 
 function Cadastro() {
-    const navigate = useNavigate();
 
-    const [form, setForm] = useState({});
+    const dispatch = useDispatch();
 
-    const setFormValues = (field, value) => 
-        setForm({...form, [field] : value});
-
-    const adicionarMiniatura = async () => {
-        try {
-            await cadastrarMiniatura(form);
-            alert("Miniatura atuaizada com sucesso!");
-            setForm({})
-            navigate('/')
-        } catch {
-            throw new Error("Erro inesperado ao cadastrar.");
-        }
-    }
+    useEffect(() => {
+        dispatch(setMiniatura())
+    }, [dispatch]);
 
     return (
-        <Form miniatura={form} setFormValues={setFormValues} submit={adicionarMiniatura} />
+        <Form />
     );
 
 }
